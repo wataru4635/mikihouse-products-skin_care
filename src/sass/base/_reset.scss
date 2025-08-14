@@ -1,0 +1,73 @@
+/* グローバルリセット */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ボディの基本設定 */
+body {
+  margin: 0;
+}
+
+/* デフォルトの余白とパディングを削除 */
+ul,
+ol,
+button,
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+time,
+small {
+  margin: 0;
+  padding: 0;
+}
+
+/* リストスタイルのリセット */
+ul,
+ol {
+  list-style: none;
+}
+
+/* aタグのスタイルとトランジション */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+/* ホバー時のカーソル設定 */
+@media (any-hover: hover) {
+  a:hover {
+    cursor: pointer;
+  }
+}
+
+/* タップ時のハイライトを透明に設定 */
+a {
+  -webkit-tap-highlight-color: transparent; /* リンクのハイライトを透明に */
+}
+
+button {
+  -webkit-tap-highlight-color: transparent; /* ボタンのハイライトも透明に */
+}
+
+#baby-skincare ul li{
+	list-style: none;
+}
+
+#baby-skincare img{
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+	border: none;
+}

@@ -1,0 +1,136 @@
+@use "sass:math";
+
+// インナー幅設定
+// コンテンツのインナー幅（最も共通の幅が多い部分）
+$inner: 1100px;
+// ※キュンパス幅ではなくインナーの幅を指す
+
+// 余白
+$padding-pc: 35px;
+$padding-sp: 20px;
+
+////////////////////
+// フォント設定
+////////////////////
+
+:root {
+  --font-family-base: "Noto Sans JP", sans-serif;
+  --font-family-second: "Inter", sans-serif;
+}
+// ※検証ツールでしっかり反映されているか確認する
+
+
+// フォントウェイト
+:root {
+  --font-weight-regular: 400;
+  --font-weight-normal: 500;
+  --font-weight-bold: 700;
+}
+
+// フォントサイズ
+:root {
+  --fs-body-xs: 12px;
+  --fs-body-sm: 13px;
+  --fs-body-md: 14px;
+  --fs-body-lg: 16px;
+  --fs-body-xl: 17px;
+  --fs-body-xxl: 20px;
+  --fs-heading-jp: 20px;
+  --fs-heading-en: 60px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    /* 本文用フォントサイズ（小→大） */
+    --fs-body-xs: clamp(10px, calc(10px + (2 * ((100vw - 768px) / 672))), 12px);
+    --fs-body-sm: clamp(11px, calc(11px + (2 * ((100vw - 768px) / 672))), 13px);
+    --fs-body-md: clamp(12px, calc(12px + (2 * ((100vw - 768px) / 672))), 14px);
+    --fs-body-lg: clamp(14px, calc(14px + (2 * ((100vw - 768px) / 672))), 16px);
+    --fs-body-xl: clamp(16px, calc(16px + (2 * ((100vw - 768px) / 672))), 18px);
+    --fs-body-xxl: clamp(18px, calc(18px + (2 * ((100vw - 768px) / 672))), 20px);
+  
+    /* 見出し */
+    --fs-heading-jp: clamp(21px, calc(21px + (2 * ((100vw - 768px) / 672))), 23px);
+    --fs-heading-en: clamp(80px, calc(80px + (20 * ((100vw - 768px) / 672))), 100px);
+  }
+  
+}
+
+////////////////////
+// 色の指定
+////////////////////
+
+//色指定（共通性のあるものは出来る限り指定すると良い）
+:root {
+  --black: #000;
+  --white: #fff;
+  --text-black: #333;
+  --title-black: #111;
+  --text-gray: ##7A7A7A;
+  --bg-color: #EBF8FF;
+  --gradient-color: linear-gradient(166deg, #FFF 2.07%, #E5F2FC 89.82%);
+  --shadow-light-blue: 0 4px 12px 0 rgba(153, 206, 226, 0.63);
+  --main-color: #649BB1;
+}
+
+////////////////////
+// z-index
+///////////////////
+
+:root {
+  --z-index-header: 100;
+  --z-index-to-top: 200;
+  --z-index-drawer: 1000;
+  --z-index-modal: 10000;
+}
+
+////////////////////
+// 余白
+///////////////////
+
+:root {
+  --section-padding-block: calc(50 / 16 * 1rem);
+}
+@media (min-width: 767px) {
+  :root {
+    --section-padding-block: 
+      clamp(130px, calc(130px + (30 * ((100vw - 768px) / 672))), 160px)
+      clamp(50px, calc(50px + (30 * ((100vw - 768px) / 672))), 80px);
+  }
+}
+
+////////////////////
+// レスポンシブ
+///////////////////
+ :root {
+  /* スマホ〜中型（320px〜768px） */
+  --fluid-basis-mobile: (100vw - 320px) / (768 - 320);
+
+  /* 中型〜大型（768px〜1440px） */
+  --fluid-basis: (100vw - 768px) / (1440 - 768);
+
+  /* 大型ディスプレイ（1440px〜1800px） */
+  --fluid-basis-2: (100vw - 1440px) / (1800 - 1440);
+}
+
+////////////////////
+// アニメーション設定
+///////////////////
+
+:root {
+  --duration-short: 0.2s;
+  --duration-base: 0.3s;
+  --duration-long: 0.6s;
+  --duration-fv: 0.7s;
+
+  --ease-smooth-bounce: cubic-bezier(.48, .07, .33, .79);
+}
+
+////////////////////
+// bodyの指定
+////////////////////
+
+body {
+  color: var(--text-black);
+  font-family: var(--font-family-base);
+}
