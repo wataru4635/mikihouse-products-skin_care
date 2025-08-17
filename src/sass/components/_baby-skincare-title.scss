@@ -1,0 +1,55 @@
+@use "global" as *;
+#baby-skincare {
+.baby-skincare-title {
+text-align: center;
+}
+
+.baby-skincare-title__en {
+  color: #D6EEFA;
+  text-shadow: var(--text-shadow);
+  font-size: var(--fs-heading-en);
+  font-weight: var(--font-weight-light);
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  @include mq('md') {
+  line-height: 1.1;
+  }
+  &.baby-skincare-title__en-sm {
+    @media (max-width: 767px) {
+      font-size: var(--fs-heading-en-sm);
+      line-height: 2.19512;
+    }
+  }
+}
+
+.baby-skincare-title__jp {
+  color: var(--main-color);
+  text-align: center;
+  font-size: var(--fs-heading-jp);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  @include mq('md') {
+  margin-top: 6px;
+  }
+  &.baby-skincare-title__jp-sm {
+    @media (max-width: 767px) {
+      font-size: var(--fs-heading-jp-sm);
+    }
+  }
+}
+
+.baby-skincare-title__sub {
+  color: var(--main-color);
+  text-align: center;
+  font-size: var(--fs-body-md);
+  font-weight: var(--font-weight-regular);
+  line-height: 1;
+  letter-spacing: 0em;
+  margin-top: 5px;
+  @include mq('md') {
+  margin-top: 8px;
+  }
+}
+
+}
