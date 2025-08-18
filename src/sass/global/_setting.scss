@@ -57,7 +57,7 @@ $padding-sp: 20px;
     --fs-body-md: clamp(12px, calc(12px + (2 * ((100vw - 768px) / 672))), 14px);
     --fs-body-lg: clamp(14px, calc(14px + (2 * ((100vw - 768px) / 672))), 16px);
     --fs-body-xl: clamp(16px, calc(16px + (2 * ((100vw - 768px) / 672))), 18px);
-    --fs-body-xxl: clamp(18px, calc(18px + (2 * ((100vw - 768px) / 672))), 20px);
+    --fs-body-xxl: clamp(17px, calc(17px + (3 * ((100vw - 768px) / 672))), 20px);
   
     /* 見出し */
     --fs-heading-jp: clamp(21px, calc(21px + (2 * ((100vw - 768px) / 672))), 23px);

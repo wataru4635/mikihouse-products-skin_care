@@ -224,6 +224,7 @@
 
           <!-- baby-skincare-feature -->
           <section class="baby-skincare-feature">
+            <canvas id="waveCanvas"></canvas>
             <div class="baby-skincare-feature__decoration">
               <picture>
                 <source srcset="/assets/images/baby-skincare-feature-decoration-sp.webp" media="(max-width: 767px)" type="image/webp" width="390" height="275.92">
@@ -273,7 +274,7 @@
             </div>
           </section>
           <!-- end of baby-skincare-feature -->
-
+             
           <!-- baby-skincare-reason -->
           <section class="baby-skincare-reason">
             <div class="baby-skincare-reason__inner inner">
@@ -285,37 +286,37 @@
                 <div class="baby-skincare-reason__steps">
                   <div class="baby-skincare-reason__step">
                     <div class="baby-skincare-reason__img-wrap">
-                      <img src="/assets/images/baby-skincare-reason-step-01.webp" alt="赤ちゃんの肌構造のイラスト" width="230" height="237.53" loading="lazy">
+                      <img src="/assets/images/baby-skincare-reason-step-01.webp" alt="赤ちゃんの肌構造のイラスト" class="baby-skincare-reason__img" width="230" height="237.53" loading="lazy">
                     </div>
                     <div class="baby-skincare-reason__text">
                       <h3 class="baby-skincare-reason__label">赤ちゃんの<br class="u-desktop">肌は未熟</h3>
                       <p class="baby-skincare-reason__desc">赤ちゃんの肌は大人の約半分の厚さで皮脂も少なく、刺激や乾燥に弱い未熟な状態です。</p>
                     </div>
                   </div>
-                
+
                   <div class="baby-skincare-reason__step">
                     <div class="baby-skincare-reason__img-wrap">
-                      <img src="/assets/images/baby-skincare-reason-step-02.webp" alt="うるおいが保たれた赤ちゃんの肌イラスト" width="230" height="230" loading="lazy">
+                      <img src="/assets/images/baby-skincare-reason-step-02.webp" alt="うるおいが保たれた赤ちゃんの肌イラスト" class="baby-skincare-reason__img" width="230" height="230" loading="lazy">
                     </div>
                     <div class="baby-skincare-reason__text">
                       <h3 class="baby-skincare-reason__label">うるおいは<br class="u-desktop">肌のバリア機能</h3>
                       <p class="baby-skincare-reason__desc">十分なうるおいがあると肌表面に薄いヴェールができ、外部刺激から守るバリアの役割を果たします。</p>
                     </div>
                   </div>
-                
+
                   <div class="baby-skincare-reason__step">
                     <div class="baby-skincare-reason__img-wrap">
-                      <img src="/assets/images/baby-skincare-reason-step-03.webp" alt="乾燥してバリア機能が低下した赤ちゃんの肌イラスト" width="230" height="230" loading="lazy">
+                      <img src="/assets/images/baby-skincare-reason-step-03.webp" alt="乾燥してバリア機能が低下した赤ちゃんの肌イラスト" class="baby-skincare-reason__img" width="230" height="230" loading="lazy">
                     </div>
                     <div class="baby-skincare-reason__text">
                       <h3 class="baby-skincare-reason__label">乾燥はバリア機能の<br>低下を招く恐れ</h3>
                       <p class="baby-skincare-reason__desc">乾燥すると肌のヴェールが壊れやすくなり、かゆみや赤みなど肌トラブルがおこりやすく、ひっかき傷や湿疹の原因につながる恐れがありります。</p>
                     </div>
                   </div>
-                
+
                   <div class="baby-skincare-reason__step">
                     <div class="baby-skincare-reason__img-wrap">
-                      <img src="/assets/images/baby-skincare-reason-step-04.webp" alt="スキンケアされている赤ちゃんの写真" width="230" height="230" loading="lazy">
+                      <img src="/assets/images/baby-skincare-reason-step-04.webp" alt="スキンケアされている赤ちゃんの写真" class="baby-skincare-reason__img" width="230" height="230" loading="lazy">
                     </div>
                     <div class="baby-skincare-reason__text">
                       <h3 class="baby-skincare-reason__label">赤ちゃんに<br class="u-desktop">毎日の保湿ケアを</h3>
@@ -323,27 +324,31 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="baby-skincare-reason__expert-comment">
                   <div class="baby-skincare-reason__comment-icon">
-                    <img src="/assets/images/baby-skincare-reason-expert.webp" alt="専門家コメントアイコン"  loading="lazy">
+                    <img src="/assets/images/baby-skincare-reason-expert.webp" alt="専門家コメントアイコン" class="baby-skincare-reason__comment-icon-img" width="110" height="138" loading="lazy">
+                    <p class="baby-skincare-reason__comment-label baby-skincare-reason__comment-label--sp">専門家のコメント</p>
                   </div>
                   <div class="baby-skincare-reason__comment-content">
-                    <p class="baby-skincare-reason__comment-label">専門家のコメント</p>
+                    <p class="baby-skincare-reason__comment-label baby-skincare-reason__comment-label--pc">専門家のコメント</p>
                     <p class="baby-skincare-reason__comment-text">このテキストはダミーテキストです。専門家からのコメントが入ります。このテキストはダミーテキストです。専門家からのコメントが入ります。このテキストはダミーテキストです。専門家からのコメントが入ります。このテキストはダミーテキストです。専門家からのコメントが入ります。このテキストはダミーテキストです。
                     </p>
                     <p class="baby-skincare-reason__comment-name">名前太郎</p>
                   </div>
                 </div>
-                
+
                 <div class="baby-skincare-reason__link-wrap">
-                  <a href="#" class="baby-skincare-reason__link">赤ちゃんの保湿とスキンケアの方法についてさらに詳しく</a>
+                  <a href="#" class="baby-skincare-reason__link">赤ちゃんの保湿と<br class="u-mobile">スキンケアの方法についてさらに詳しく</a>
                 </div>
-                
+
               </div>
             </div>
           </section>
           <!-- end of baby-skincare-reason -->
+
+          <!-- baby-skincare-about -->
+
 
            <div class="space-top-100" style="height: 600px; display: block; background-color: #f0f0f0;"></div>
         </div>
