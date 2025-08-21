@@ -22,6 +22,7 @@
   observeElements(".js-fade-in");
   observeElements(".js-clip-img");
   observeElements(".js-scaleImg");
+  observeElements(".js-animation");
 
   // =======================
   // 文字を1文字ずつ <span> に分割
@@ -45,122 +46,397 @@
 
 
   /* ===============================================
-  # 波
-  =============================================== */
+    # 波
+    =============================================== */
   var unit = 100,
     canvasList, // キャンバスの配列
     info = {}, // 全キャンバス共通の描画情報
     colorList; // 各キャンバスの色情報
 
-/**
- * Init function.
- * 
- * Initialize variables and begin the animation.
- */
-function init() {
+  function init() {
     info.seconds = 0;
     info.t = 0;
-		canvasList = [];
+    canvasList = [];
     colorList = [];
-    // canvas1個めの色指定
-    canvasList.push(document.getElementById("waveCanvas"));
-    colorList.push(['#EBF8FF']);
-	// 各キャンバスの初期化
-		for(var canvasIndex in canvasList) {
-        var canvas = canvasList[canvasIndex];
-        canvas.width = document.documentElement.clientWidth; //Canvasのwidthをウィンドウの幅に合わせる
-        canvas.height = 200;//波の高さ
-        canvas.contextCache = canvas.getContext("2d");
-    }
-    // 共通の更新処理呼び出し
-		update();
-}
 
-const SPEED = 0.007;   // ← 0.014 から下げてゆっくり
-const FRAME_MS = 40;   // ← 35ms から少し長く（任意）
+    // クラス指定で取得
+    var canvases = document.querySelectorAll(".js-wave");
+    canvases.forEach((c) => {
+      canvasList.push(c);
+      colorList.push(["#EBF8FF"]); // 色（必要に応じて個別設定可）
+      c.width = document.documentElement.clientWidth;
+      c.height = 200;
+      c.contextCache = c.getContext("2d");
+    });
 
-function update() {
-  for (var canvasIndex in canvasList) {
-    var canvas = canvasList[canvasIndex];
-    draw(canvas, colorList[canvasIndex]);
+    update();
   }
-  info.seconds += SPEED;
-  info.t = info.seconds * Math.PI;
-  setTimeout(update, FRAME_MS);
-}
 
-/**
- * Draw animation function.
- * 
- * This function draws one frame of the animation, waits 20ms, and then calls
- * itself again.
- */
-function draw(canvas, color) {
-		// 対象のcanvasのコンテキストを取得
+  // アニメーション速度
+  const SPEED = 0.007;
+  const FRAME_MS = 40;
+
+  function update() {
+    canvasList.forEach((canvas, i) => {
+      if (!canvas || !canvas.contextCache) return;
+
+      if (canvas.classList.contains("reverse")) {
+        drawReverse(canvas, colorList[i]); // 下側で閉じる波
+      } else {
+        draw(canvas, colorList[i]); // 上側で閉じる波
+      }
+    });
+
+    info.seconds += SPEED;
+    info.t = info.seconds * Math.PI;
+    setTimeout(update, FRAME_MS);
+  }
+
+  /* 通常波（上側で閉じる） */
+  function draw(canvas, color) {
     var context = canvas.contextCache;
-    // キャンバスの描画をクリア
     context.clearRect(0, 0, canvas.width, canvas.height);
 
-    // モバイルサイズかどうかを判定
     const isMobile = window.innerWidth <= 787;
     const zoomValue = isMobile ? 1 : 2.5;
 
-    //波を描画 drawWave(canvas, color[数字（波の数を0から数えて指定）], 透過, 波の幅のzoom,波の開始位置の遅れ )
-    drawWave(canvas, color[0], 1, zoomValue, 0);//drawWave(canvas, color[0],0.5, 3, 0);とすると透過50%の波が出来る
-}
+    drawWave(canvas, color[0], 1, zoomValue, 0);
+  }
 
-/**
-* 波を描画
-* drawWave(色, 不透明度, 波の幅のzoom, 波の開始位置の遅れ)
-*/
-function drawWave(canvas, color, alpha, zoom, delay) {
-  var context = canvas.contextCache;
-  context.fillStyle = color;
-  context.globalAlpha = alpha;
-  context.beginPath();
-  drawSine(canvas, info.t / 0.5, zoom, delay);
-  context.lineTo(canvas.width + 10, 0);
-  context.lineTo(0, 0);
+  /* 逆波（下側で閉じる） */
+  function drawReverse(canvas, color) {
+    var context = canvas.contextCache;
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
-  context.closePath();
-  context.fill();
-}
+    const isMobile = window.innerWidth <= 787;
+    const zoomValue = isMobile ? 1 : 2.5;
 
-/**
- * Function to draw sine
- * 
- * The sine curve is drawn in 10px segments starting at the origin. 
- * drawSine(時間, 波の幅のzoom, 波の開始位置の遅れ)
- */
-function drawSine(canvas, t, zoom, delay) {
-    var xAxis = Math.floor(canvas.height/2);
+    drawWaveReverse(canvas, color[0], 1, zoomValue, 0);
+  }
+
+  /* 上側で閉じる */
+  function drawWave(canvas, color, alpha, zoom, delay) {
+    var context = canvas.contextCache;
+    context.fillStyle = color;
+    context.globalAlpha = alpha;
+    context.beginPath();
+
+    drawSine(canvas, info.t / 0.5, zoom, delay);
+
+    context.lineTo(canvas.width + 10, 0);
+    context.lineTo(0, 0);
+
+    context.closePath();
+    context.fill();
+  }
+
+  /* 下側で閉じる */
+  function drawWaveReverse(canvas, color, alpha, zoom, delay) {
+    var context = canvas.contextCache;
+    context.fillStyle = color;
+    context.globalAlpha = alpha;
+    context.beginPath();
+
+    drawSine(canvas, info.t / 0.5, zoom, delay);
+
+    context.lineTo(canvas.width + 10, canvas.height);
+    context.lineTo(0, canvas.height);
+
+    context.closePath();
+    context.fill();
+  }
+
+  /* サイン波本体 */
+  function drawSine(canvas, t, zoom, delay) {
+    var xAxis = Math.floor(canvas.height / 2);
     var yAxis = 0;
     var context = canvas.contextCache;
-    // Set the initial x and y, starting at 0,0 and translating to the origin on
-    // the canvas.
-    var x = t; //時間を横の位置とする
-    var y = Math.sin(x)/zoom;
-    context.moveTo(yAxis, unit*y+xAxis); //スタート位置にパスを置く
 
-    // モバイルサイズかどうかを判定
+    var x = t;
+    var y = Math.sin(x) / zoom;
+    context.moveTo(yAxis, unit * y + xAxis);
+
     const isMobile = window.innerWidth <= 787;
-    // モバイルの場合は振幅を小さくする
     const amplitude = isMobile ? 0.3 : 0.5;
 
-    // Loop to draw segments (横幅の分、波を描画)
     for (let i = yAxis; i <= canvas.width + 5; i += 5) {
       x = t + (-yAxis + i) / unit / zoom;
-      y = -Math.sin(x - delay) * amplitude;  // 振幅を調整
-      context.lineTo(i, unit*y + xAxis);
-  }  
-}
-
-init();
-
-// ウィンドウリサイズ時にキャンバスサイズを更新
-window.addEventListener('resize', function() {
-  for(var canvasIndex in canvasList) {
-    var canvas = canvasList[canvasIndex];
-    canvas.width = document.documentElement.clientWidth;
+      y = -Math.sin(x - delay) * amplitude;
+      context.lineTo(i, unit * y + xAxis);
+    }
   }
-});
+
+  init();
+
+  /* リサイズ対応 */
+  window.addEventListener("resize", function () {
+    canvasList.forEach((canvas) => {
+      canvas.width = document.documentElement.clientWidth;
+    });
+  });
+
+  /* ===============================================
+  # 商品詳細
+  =============================================== */
+  document.addEventListener('DOMContentLoaded', () => {
+    // 各セクションごとに初期化
+    document.querySelectorAll('.baby-skincare-about-product').forEach(initProductGallery);
+
+    function initProductGallery(root) {
+      const mainImg = root.querySelector('.js-main-img-wrap img');
+      const thumbsWrap = root.querySelector('.js-thumb-images');
+      if (!mainImg || !thumbsWrap) return;
+
+      // クリックで切り替え（イベント委譲）
+      thumbsWrap.addEventListener('click', (e) => {
+        const btn = e.target.closest('.js-thumb');
+        if (!btn || !thumbsWrap.contains(btn)) return;
+        activate(btn);
+      });
+
+      // キーボード操作（Enter / Space）
+      thumbsWrap.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const btn = e.target.closest('.js-thumb');
+        if (!btn) return;
+        e.preventDefault();
+        activate(btn);
+      });
+
+      function activate(btn) {
+        // is-active 付け替え（同一セクション内のみ）
+        root.querySelectorAll('.js-thumb.is-active').forEach(b => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-current', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-current', 'true');
+
+        // サムネ画像を取得してメインに反映
+        const thumbImg = btn.querySelector('img');
+        if (!thumbImg) return;
+
+        // 画像切替
+        swapImage(mainImg, thumbImg);
+      }
+
+      function swapImage(main, thumb) {
+        // src / alt のみでOK（srcset/sizesを使っている場合はそちらも同期）
+        if (thumb.currentSrc) {
+          // currentSrcがあれば実際に表示中のURLを優先（ブラウザの選択結果）
+          main.src = thumb.currentSrc;
+        } else {
+          main.src = thumb.getAttribute('src');
+        }
+        main.alt = thumb.getAttribute('alt') || '';
+        // srcset/sizes を使っているなら以下も必要
+        if (thumb.getAttribute('srcset')) {
+          main.setAttribute('srcset', thumb.getAttribute('srcset'));
+        } else {
+          main.removeAttribute('srcset');
+        }
+        if (thumb.getAttribute('sizes')) {
+          main.setAttribute('sizes', thumb.getAttribute('sizes'));
+        } else {
+          main.removeAttribute('sizes');
+        }
+        // 遅延デコード（描画ブロックを抑制）
+        main.decoding = 'async';
+      }
+    }
+  });
+
+  /* ===============================================
+  # YouTubeモーダル（複数動画対応）
+  =============================================== */
+  const modal = document.getElementById("youtubeModal");
+  const iframe = document.getElementById("youtubeFrame");
+  const triggers = document.querySelectorAll(".js-open-youtube");
+  const closeBtn = document.querySelector(".youtube-modal__close");
+
+  // URL/ID から動画IDを抽出（watch / youtu.be / shorts / 直接ID に対応）
+  function extractVideoId(input) {
+    if (!input) return "";
+    // 直接ID（11文字）ならそのまま
+    if (/^[a-zA-Z0-9_-]{11}$/.test(input)) return input;
+
+    // URLパターン
+    try {
+      const u = new URL(input, location.origin);
+
+      // 短縮 youtu.be/VIDEOID
+      if (u.hostname.includes("youtu.be")) {
+        const id = u.pathname.split("/").filter(Boolean)[0];
+        if (id) return id;
+      }
+
+      // 通常 watch?v=VIDEOID
+      if (u.searchParams.has("v")) {
+        return u.searchParams.get("v");
+      }
+
+      // shorts/VIDEOID
+      if (u.pathname.includes("/shorts/")) {
+        const parts = u.pathname.split("/shorts/")[1];
+        if (parts) return parts.split("/")[0];
+      }
+
+      // embed/VIDEOID
+      if (u.pathname.includes("/embed/")) {
+        const parts = u.pathname.split("/embed/")[1];
+        if (parts) return parts.split("/")[0];
+      }
+    } catch (_) {
+      // 相対や不正文字列でも無視して次へ
+    }
+
+    return "";
+  }
+
+  function buildEmbedSrc(videoId, params = {}) {
+    const base = `https://www.youtube-nocookie.com/embed/${videoId}`;
+    const q = new URLSearchParams({
+      autoplay: 1,
+      rel: 0,
+      ...params,
+    });
+    return `${base}?${q.toString()}`;
+  }
+
+  function openModalWithVideo(input) {
+    const videoId = extractVideoId(input);
+    if (!videoId) return;
+
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("is-hidden");
+
+    const isMobile = window.innerWidth <= 768;
+    const setSrc = () => {
+      iframe.src = buildEmbedSrc(videoId);
+    };
+
+    if (isMobile) {
+      setSrc();
+    } else {
+      setTimeout(setSrc, 300); // PCはフェード演出等の猶予
+    }
+  }
+
+  function closeModal() {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("is-hidden");
+    setTimeout(() => {
+      iframe.src = "";
+    }, 300);
+  }
+
+  // イベント付与（複数サムネイル対応）
+  triggers.forEach(btn => {
+    btn.addEventListener("click", () => {
+      openModalWithVideo(btn.dataset.video);
+    });
+  });
+
+  // 背景クリック閉じ
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // ボタン閉じ
+  closeBtn.addEventListener("click", closeModal);
+
+  // Esc キー閉じ
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("show")) {
+      closeModal();
+    }
+  });
+
+  /* ===============================================
+  # トップページのスライダー機能（はみ出し時のみスクロールバー表示）
+  =============================================== */
+  document.addEventListener("DOMContentLoaded", function () {
+    const carouselWrap = document.querySelector(".baby-skincare-user-voice_carousel_wrap");
+
+    if (!carouselWrap) return;
+
+    const swiper = new Swiper(".baby-skincare-user-voice_carousel_wrap", {
+      loop: false,
+      centeredSlides: false,
+      slidesPerView: "auto",
+      grabCursor: true,
+      scrollbar: {
+        el: ".baby-skincare-user-voice_carousel_scrollbar",
+        hide: false, // ← Swiper側の自動フェードは使わず、手動で制御
+        draggable: true,
+        dragSize: 120,
+      },
+      freeMode: {
+        enabled: true,
+        sticky: false,
+        momentumBounce: false,
+      },
+      breakpoints: {
+        800: {
+          scrollbar: {
+            dragSize: 200
+          },
+        },
+      },
+      on: {
+        init() {
+          toggleScrollbar(this);
+        },
+        resize() {
+          toggleScrollbar(this);
+        },
+        update() {
+          toggleScrollbar(this);
+        },
+        imagesReady() {
+          toggleScrollbar(this);
+        } // 画像で幅が変わる場合に備える
+      }
+    });
+
+    // 初期化直後に一度遅延チェック（フォント読み込み等で幅が変わる対策）
+    requestAnimationFrame(() => toggleScrollbar(swiper));
+
+    function toggleScrollbar(swiper) {
+      const scrollbarEl = swiper.scrollbar ?.el;
+      if (!scrollbarEl) return;
+
+      // 全スライドの合計幅を算出（余白も含めた実寸で判定）
+      const totalWidth = Array.from(swiper.slides).reduce((sum, slide) => {
+        // スライド幅 + spaceBetween を概算
+        const w = slide.getBoundingClientRect().width;
+        return sum + w + (swiper.params.spaceBetween || 0);
+      }, 0);
+
+      // 表示領域（コンテナの可視横幅）
+      const containerWidth = swiper.width;
+
+      // カルーセル要素を取得
+      const carousel = document.querySelector('.baby-skincare-user-voice_carousel');
+
+      if (totalWidth > containerWidth + 1) {
+        // はみ出している → 表示
+        scrollbarEl.style.display = "";
+        // サイズ再計算（念のため）
+        swiper.scrollbar.updateSize ?.();
+        // カルーセルのポインターイベントを有効化
+        if (carousel) {
+          carousel.style.pointerEvents = "auto";
+        }
+      } else {
+        // 収まっている → 非表示
+        scrollbarEl.style.display = "none";
+        // カルーセルのポインターイベントを無効化
+        if (carousel) {
+          carousel.style.pointerEvents = "none";
+        }
+      }
+    }
+  });

@@ -193,3 +193,29 @@
     transition-delay: .0s;
   }
 }
+
+////////////////////
+// 波形アニメーション
+////////////////////
+
+.js-wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  height: 150px;
+
+  &.normal {
+    bottom: -120px;
+    @include mq('md') {
+      bottom: -150px;
+    }
+  }
+
+  &.reverse {
+    top: -120px;
+    @include mq('md') {
+      top: -150px;
+    }
+  }
+}

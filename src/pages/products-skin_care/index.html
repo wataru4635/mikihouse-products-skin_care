@@ -67,9 +67,13 @@
         ==================================================================== -->
         <!-- css -->
         <link rel="stylesheet" href="/assets/css/style.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 
         <!-- styleタグを用いるのも手 -->
         <style>
+          html {
+            scroll-padding-top: 50px;
+          }
             #MainContent > section > .page-width {
                 max-width: 100%; /* ページ幅を100%にする */
                 padding: 0; /* 左右余白を打ち消す */
@@ -97,10 +101,10 @@
             <div class="baby-skincare-nav">
               <div class="baby-skincare-nav__inner">
                 <ul class="baby-skincare-nav__list">
-                  <li class="baby-skincare-nav__item"><a href="#" class="baby-skincare-nav__link">商品を見る</a></li>
-                  <li class="baby-skincare-nav__item"><a href="#" class="baby-skincare-nav__link">ベビースキンケアの特徴</a></li>
-                  <li class="baby-skincare-nav__item"><a href="#" class="baby-skincare-nav__link">シリーズラインナップ</a></li>
-                  <li class="baby-skincare-nav__item"><a href="#" class="baby-skincare-nav__link">よくある質問</a></li>
+                  <li class="baby-skincare-nav__item"><a href="#lineup" class="baby-skincare-nav__link">商品を見る</a></li>
+                  <li class="baby-skincare-nav__item"><a href="#feature" class="baby-skincare-nav__link">ベビースキンケアの特徴</a></li>
+                  <li class="baby-skincare-nav__item"><a href="#lineup" class="baby-skincare-nav__link">シリーズラインナップ</a></li>
+                  <li class="baby-skincare-nav__item"><a href="#faq" class="baby-skincare-nav__link">よくある質問</a></li>
                 </ul>
               </div>
             </div>
@@ -108,7 +112,7 @@
           <!-- end of baby-skincare-fv -->
 
           <!-- baby-skincare-lineup -->
-          <section class="baby-skincare-lineup">
+          <section class="baby-skincare-lineup" id="lineup">
             <div class="baby-skincare-lineup__inner inner">
               <hgroup class="baby-skincare-lineup__title baby-skincare-title">
                 <p class="baby-skincare-title__en">LI<span style="letter-spacing: 0.14em;" aria-hidden="true">N</span><span style="letter-spacing: -0.09em;" aria-hidden="true">E</span> <span style="letter-spacing: 0.12em;" aria-hidden="true">U</span>P</p>
@@ -133,7 +137,7 @@
                           <p class="baby-skincare-product__name">ベビースキンケアセット</p>
                           <p class="baby-skincare-product__desc">お肌のバリア機能が未熟な赤ちゃんに<br class="u-desktop">毎日必要なスキンケアのベーシックセット！</p>
                           <p class="baby-skincare-product__price">¥8,800<span class="baby-skincare-product__price-tax">（税込）</span></p>
-                          <a href="#" class="baby-skincare-product__btn">購入する</a>
+                          <a href="https://www.mikihouse.co.jp/products/44-9989-388?variant=41141626962098" class="baby-skincare-product__btn" target="_blank" rel="noopener noreferrer">購入する</a>
                         </div>
                       </div>
 
@@ -145,7 +149,7 @@
                           <p class="baby-skincare-product__name">スキンケアお試しセット</p>
                           <p class="baby-skincare-product__desc">お肌のバリア機能が未熟な赤ちゃんに毎日必要なスキンケアのベーシックセット！</p>
                           <p class="baby-skincare-product__price">¥5,500<span class="baby-skincare-product__price-tax">（税込）</span></p>
-                          <a href="#" class="baby-skincare-product__btn">購入する</a>
+                          <a href="https://www.mikihouse.co.jp/products/45-3022-451?variant=41141627682994" class="baby-skincare-product__btn" target="_blank" rel="noopener noreferrer">購入する</a>
                         </div>
                       </div>
 
@@ -163,7 +167,7 @@
                           <p class="baby-skincare-product__name">ミキハウス <br class="u-mobile">ベビーソープ（洗浄剤）</p>
                           <p class="baby-skincare-product__desc">頭から顔、全身まで赤ちゃんの<br class="u-desktop">肌を清潔に保ちます。</p>
                           <p class="baby-skincare-product__price">¥4,180<span class="baby-skincare-product__price-tax">（税込）</span></p>
-                          <a href="#" class="baby-skincare-product__btn">購入する</a>
+                          <a href="https://www.mikihouse.co.jp/products/45-3018-261" class="baby-skincare-product__btn" target="_blank" rel="noopener noreferrer">購入する</a>
                         </div>
                       </div>
 
@@ -175,7 +179,7 @@
                           <p class="baby-skincare-product__name">ミキハウス ベビーオイル</p>
                           <p class="baby-skincare-product__desc">ベビーマッサージにもお使いいただける、<br class="u-desktop">毎日のベビースキンケアのための基本です。</p>
                           <p class="baby-skincare-product__price">¥4,180<span class="baby-skincare-product__price-tax">（税込）</span></p>
-                          <a href="#" class="baby-skincare-product__btn">購入する</a>
+                          <a href="https://www.mikihouse.co.jp/products/45-3020-264" class="baby-skincare-product__btn" target="_blank" rel="noopener noreferrer">購入する</a>
                         </div>
                       </div>
 
@@ -187,7 +191,7 @@
                           <p class="baby-skincare-product__name">ミキハウス <br class="u-mobile">ベビーミルクローション</p>
                           <p class="baby-skincare-product__desc">赤ちゃんの肌にすっとなじんで、<br class="u-desktop">うるおいを与えます。（※弱酸性）</p>
                           <p class="baby-skincare-product__price">¥4,180<span class="baby-skincare-product__price-tax">（税込）</span></p>
-                          <a href="#" class="baby-skincare-product__btn">購入する</a>
+                          <a href="https://www.mikihouse.co.jp/products/45-3019-264" class="baby-skincare-product__btn" target="_blank" rel="noopener noreferrer">購入する</a>
                         </div>
                       </div>
 
@@ -199,7 +203,7 @@
                           <p class="baby-skincare-product__name">ミキハウス <br class="u-mobile">ベビークリーム</p>
                           <p class="baby-skincare-product__desc">多層ヴェールで、うるおいをしっかりキープ。乾燥しがちな季節や、気になるところの集中ケアにも。（※弱酸性）</p>
                           <p class="baby-skincare-product__price">¥4,180<span class="baby-skincare-product__price-tax">（税込）</span></p>
-                          <a href="#" class="baby-skincare-product__btn">購入する</a>
+                          <a href="https://www.mikihouse.co.jp/products/45-3021-267" class="baby-skincare-product__btn" target="_blank" rel="noopener noreferrer">購入する</a>
                         </div>
                       </div>
 
@@ -223,8 +227,8 @@
           </section>
 
           <!-- baby-skincare-feature -->
-          <section class="baby-skincare-feature">
-            <canvas id="waveCanvas"></canvas>
+          <section class="baby-skincare-feature" id="feature">
+            <canvas class="js-wave normal"></canvas>
             <div class="baby-skincare-feature__decoration">
               <picture>
                 <source srcset="/assets/images/baby-skincare-feature-decoration-sp.webp" media="(max-width: 767px)" type="image/webp" width="390" height="275.92">
@@ -339,7 +343,7 @@
                 </div>
 
                 <div class="baby-skincare-reason__link-wrap">
-                  <a href="#" class="baby-skincare-reason__link">赤ちゃんの保湿と<br class="u-mobile">スキンケアの方法についてさらに詳しく</a>
+                  <a href="https://www.mikihouse.co.jp/pages/products-skin_care_detail" class="baby-skincare-reason__link">赤ちゃんの保湿と<br class="u-mobile">スキンケアの方法についてさらに詳しく</a>
                 </div>
 
               </div>
@@ -348,6 +352,501 @@
           <!-- end of baby-skincare-reason -->
 
           <!-- baby-skincare-about -->
+          <section class="baby-skincare-about">
+            <canvas class="js-wave reverse"></canvas>
+            <canvas class="js-wave normal"></canvas>
+            <div class="baby-skincare-about__inner inner">
+              <hgroup class="baby-skincare-lineup__title baby-skincare-title">
+                <p class="baby-skincare-title__en baby-skincare-title__en-sm">ABOUT</p>
+                <h2 class="baby-skincare-title__jp baby-skincare-title__jp-sm">ミキハウス<br class="u-mobile">ベビースキンケアシリーズについて</h2>
+              </hgroup>
+              <div class="baby-skincare-about__content">
+
+                <div class="baby-skincare-about__features">
+              
+                  <div class="baby-skincare-about__feature">
+                    <div class="baby-skincare-about__feature-img-wrap">
+                      <img src="/assets/images/baby-skincare-about-award.webp" alt="キッズデザイン賞を受賞したロゴ画像" class="baby-skincare-about__feature-img" width="180" height="120" loading="lazy">
+                    </div>
+                    <div class="baby-skincare-about__feature-text">
+                      <p class="baby-skincare-about__feature-label">キッズデザイン賞受賞</p>
+                      <p class="baby-skincare-about__feature-desc">キッズデザイン賞、<br class="u-desktop">ペアレンタルアワードを受賞</p>
+                    </div>
+                  </div>
+              
+                  <div class="baby-skincare-about__feature">
+                    <div class="baby-skincare-about__feature-img-wrap">
+                      <img src="/assets/images/baby-skincare-about-quality.webp" alt="ミキハウススキンケア商品のイメージ画像" class="baby-skincare-about__feature-img" width="180" height="120" loading="lazy">
+                    </div>
+                    <div class="baby-skincare-about__feature-text">
+                      <p class="baby-skincare-about__feature-label">ミキハウス品質</p>
+                      <p class="baby-skincare-about__feature-desc">50年以上に渡り、赤ちゃんの肌を思って徹底した品質管理を続けてきた思いをスキンケアにしました。</p>
+                    </div>
+                  </div>
+              
+                  <div class="baby-skincare-about__feature">
+                    <div class="baby-skincare-about__feature-img-wrap">
+                      <img src="/assets/images/baby-skincare-about-gift.webp" alt="出産祝い用ギフトセットの写真" class="baby-skincare-about__feature-img" width="180" height="120" loading="lazy">
+                    </div>
+                    <div class="baby-skincare-about__feature-text">
+                      <p class="baby-skincare-about__feature-label">出産祝いやギフトにも</p>
+                      <p class="baby-skincare-about__feature-desc">贈る時期や性別を問わず喜ばれ、<br class="u-desktop">開けた瞬間に笑顔が広がる贈り物です。</p>
+                    </div>
+                  </div>
+
+                  <div class="baby-skincare-about__feature">
+                    <div class="baby-skincare-about__feature-img-wrap">
+                      <img src="/assets/images/baby-skincare-about-family.webp" alt="親子の絆を表す手の画像" class="baby-skincare-about__feature-img" width="180" height="120" loading="lazy">
+                    </div>
+                    <div class="baby-skincare-about__feature-text">
+                      <p class="baby-skincare-about__feature-label">肌で育む、親子の絆。</p>
+                      <p class="baby-skincare-about__feature-desc">手のぬくもりで塗るたび安心感が高まるタッチケア。伸びが良くベタつかないテクスチャーで、毎日の保湿が親子の絆を深めます。</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="baby-skincare-about__products">
+
+                  <!-- ベビーソープ -->
+                  <div class="baby-skincare-about-product">
+                    <div class="baby-skincare-about-product__heading">
+                      <h3 class="baby-skincare-about-product__heading-title">ミキハウス ベビーソープ（洗浄剤）</h3>
+                      <span class="baby-skincare-about-product__heading-label">洗う</span>
+                    </div>
+                    <div class="baby-skincare-about-product__body">
+
+                      <div class="baby-skincare-about-product__images">
+                        <div class="baby-skincare-about-product__img-wrap js-main-img-wrap">
+                          <img src="/assets/images/about-soap_main.webp" alt="ミキハウス ベビーソープのボトル画像" class="baby-skincare-about-product__main-img" width="250" height="250" loading="lazy">
+                        </div>
+
+                        <div class="baby-skincare-about-product__thumbs js-thumb-images">
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb is-active" type="button" aria-label="ベビーソープ メイン画像を表示">
+                            <img src="/assets/images/about-soap_main.webp" alt="ベビーソープの正面ボトル画像" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb" type="button" aria-label="ベビーソープ 使用シーン画像を表示">
+                            <img src="/assets/images/about-soap_sub01.webp" alt="ベビーソープを手に取る様子" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb" type="button" aria-label="ベビーソープ 泡のイメージを表示">
+                            <img src="/assets/images/about-soap_sub02.webp" alt="ベビーソープの泡の状態" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="baby-skincare-about-product__content">
+                        <div class="baby-skincare-about-product__info">
+                          <dl class="baby-skincare-about-product__spec">
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">商品名</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">ベビーソープ（洗浄剤）</dd>
+                            </div>
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">容量</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">300ml</dd>
+                            </div>
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">価格</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">¥8,800（税込）</dd>
+                            </div>
+                          </dl>
+                          <div class="baby-skincare-about-product__badge">
+                            <img src="/assets/images/about-award_badge.webp" alt="キッズデザイン賞ロゴ" class="baby-skincare-about-product__badge-img" width="80" height="104" loading="lazy">
+                          </div>
+                        </div>
+
+                        <div class="baby-skincare-about-product__detail">
+                          <p class="baby-skincare-about-product__detail-title">頭から顔、全身まで赤ちゃんの肌を清潔に保ちます。（※弱酸性）</p>
+                          <ul class="baby-skincare-about-product__points">
+                            <li class="baby-skincare-about-product__point">洗う成分は全て植物由来成分を厳選しました。</li>
+                            <li class="baby-skincare-about-product__point">洗浄成分の3倍配合された保湿成分が、赤ちゃんの肌にうるおいヴェールをつくります。</li>
+                            <li class="baby-skincare-about-product__point">クリーミーな泡が赤ちゃんの肌をやさしく洗います。</li>
+                            <li class="baby-skincare-about-product__point">泡切れがよく、すすぎ残しがありません。</li>
+                          </ul>
+                          <p class="baby-skincare-about-product__detail-note">※石油系界面活性剤、紫外線吸収剤、動物由来成分、パラベン、合成香料、合成色素、アルコール、鉱物油フリー</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ベビーオイル -->
+                  <div class="baby-skincare-about-product">
+                    <div class="baby-skincare-about-product__heading">
+                      <h3 class="baby-skincare-about-product__heading-title">ミキハウス ベビーオイル</h3>
+                      <span class="baby-skincare-about-product__heading-label">肌を整える</span>
+                    </div>
+                    <div class="baby-skincare-about-product__body">
+
+                      <div class="baby-skincare-about-product__images">
+                        <div class="baby-skincare-about-product__img-wrap js-main-img-wrap">
+                          <img src="/assets/images/about-oil_main.webp" alt="ミキハウス ベビーオイルのボトル画像" class="baby-skincare-about-product__main-img" width="250" height="250" loading="lazy">
+                        </div>
+
+                        <div class="baby-skincare-about-product__thumbs js-thumb-images">
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb is-active" type="button" aria-label="ベビーソープ メイン画像を表示">
+                            <img src="/assets/images/about-oil_main.webp" alt="ベビーオイルの正面ボトル画像" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb" type="button" aria-label="ベビーオイル 使用シーン画像を表示">
+                            <img src="/assets/images/about-oil_sub01.webp" alt="ベビーオイルを手に取る様子" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb" type="button" aria-label="ベビーオイル 泡のイメージを表示">
+                            <img src="/assets/images/about-oil_sub02.webp" alt="ベビーオイルの泡の状態" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="baby-skincare-about-product__content">
+                        <div class="baby-skincare-about-product__info">
+                          <dl class="baby-skincare-about-product__spec">
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">商品名</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">ベビーオイル</dd>
+                            </div>
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">容量</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">80ml</dd>
+                            </div>
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">価格</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">¥4,180（税込）</dd>
+                            </div>
+                          </dl>
+                          <div class="baby-skincare-about-product__badge">
+                            <img src="/assets/images/about-award_badge.webp" alt="キッズデザイン賞ロゴ" class="baby-skincare-about-product__badge-img" width="80" height="104" loading="lazy">
+                          </div>
+                        </div>
+
+                        <div class="baby-skincare-about-product__detail">
+                          <p class="baby-skincare-about-product__detail-title">ベビーマッサージにもお使いいただける、毎日のベビースキンケアのための基本です。</p>
+                          <ul class="baby-skincare-about-product__points">
+                            <li class="baby-skincare-about-product__point">10種の天然植物オイルを配合し、未熟な皮脂膜を補い、赤ちゃんの肌を整えます。</li>
+                            <li class="baby-skincare-about-product__point">肌なじみがよく、べたつきを感じにくいので、塗ったあとの着替えも気になりません。</li>
+                            <li class="baby-skincare-about-product__point">産後のママのケアも含めて、家族みんなで様々なシーンでご活用いただけます。</li>
+                          </ul>
+                          <p class="baby-skincare-about-product__detail-note">※石油系界面活性剤、紫外線吸収剤、動物由来成分、パラベン、合成香料、合成色素、アルコール、鉱物油フリー</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ベビーミルクローション -->
+                  <div class="baby-skincare-about-product">
+                    <div class="baby-skincare-about-product__heading">
+                      <h3 class="baby-skincare-about-product__heading-title">ミキハウス ベビーミルクローション</h3>
+                      <span class="baby-skincare-about-product__heading-label">潤い補給</span>
+                    </div>
+                    <div class="baby-skincare-about-product__body">
+
+                      <div class="baby-skincare-about-product__images">
+                        <div class="baby-skincare-about-product__img-wrap js-main-img-wrap">
+                          <img src="/assets/images/about-milk_main.webp" alt="ミキハウス ベビーミルクローションのボトル画像" class="baby-skincare-about-product__main-img" width="250" height="250" loading="lazy">
+                        </div>
+
+                        <div class="baby-skincare-about-product__thumbs js-thumb-images">
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb is-active" type="button" aria-label="ベビーソープ メイン画像を表示">
+                            <img src="/assets/images/about-milk_main.webp" alt="ベビーミルクローションの正面ボトル画像" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb" type="button" aria-label="ベビーミルクローション 使用シーン画像を表示">
+                            <img src="/assets/images/about-milk_sub01.webp" alt="ベビーミルクローションを手に取る様子" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb" type="button" aria-label="ベビーミルクローション 泡のイメージを表示">
+                            <img src="/assets/images/about-milk_sub02.webp" alt="ベビーミルクローションの泡の状態" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="baby-skincare-about-product__content">
+                        <div class="baby-skincare-about-product__info">
+                          <dl class="baby-skincare-about-product__spec">
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">商品名</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">ベビーミルクローション</dd>
+                            </div>
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">容量</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">120ml</dd>
+                            </div>
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">価格</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">¥4,180（税込）</dd>
+                            </div>
+                          </dl>
+                          <div class="baby-skincare-about-product__badge">
+                            <img src="/assets/images/about-award_badge.webp" alt="キッズデザイン賞ロゴ" class="baby-skincare-about-product__badge-img" width="80" height="104" loading="lazy">
+                          </div>
+                        </div>
+
+                        <div class="baby-skincare-about-product__detail">
+                          <p class="baby-skincare-about-product__detail-title">ベビーマッサージにもお使いいただける、毎日のベビースキンケアのための基本です。</p>
+                          <ul class="baby-skincare-about-product__points">
+                            <li class="baby-skincare-about-product__point">シアバター、メドウフォーム油の2種類の天然植物オイルで、うるおい効果が持続します。</li>
+                            <li class="baby-skincare-about-product__point">みずみずしく、伸びのいい使用感で、元気な赤ちゃんにも塗りやすい質感です。</li>
+                            <li class="baby-skincare-about-product__point">塗った後はべたつかずさらさら。</li>
+                          </ul>
+                          <p class="baby-skincare-about-product__detail-note">※石油系界面活性剤、紫外線吸収剤、動物由来成分、パラベン、合成香料、合成色素、アルコール、鉱物油フリー</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ベビークリーム -->
+                  <div class="baby-skincare-about-product">
+                    <div class="baby-skincare-about-product__heading">
+                      <h3 class="baby-skincare-about-product__heading-title">ミキハウス ベビークリーム</h3>
+                      <span class="baby-skincare-about-product__heading-label">保護する</span>
+                    </div>
+                    <div class="baby-skincare-about-product__body">
+
+                      <div class="baby-skincare-about-product__images">
+                        <div class="baby-skincare-about-product__img-wrap js-main-img-wrap">
+                          <img src="/assets/images/about-cream_main.webp" alt="ミキハウス ベビークリームのボトル画像" class="baby-skincare-about-product__main-img" width="250" height="250" loading="lazy">
+                        </div>
+
+                        <div class="baby-skincare-about-product__thumbs js-thumb-images">
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb is-active" type="button" aria-label="ベビーソープ メイン画像を表示">
+                            <img src="/assets/images/about-cream_main.webp" alt="ベビークリームの正面ボトル画像" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb" type="button" aria-label="ベビークリーム 使用シーン画像を表示">
+                            <img src="/assets/images/about-cream_sub01.webp" alt="ベビークリームを手に取る様子" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                          <button class="baby-skincare-about-product__thumb-wrap js-thumb" type="button" aria-label="ベビークリーム 泡のイメージを表示">
+                            <img src="/assets/images/about-cream_sub02.webp" alt="ベビークリームの泡の状態" class="baby-skincare-about-product__thumb-img" width="77" height="77" loading="lazy">
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="baby-skincare-about-product__content">
+                        <div class="baby-skincare-about-product__info">
+                          <dl class="baby-skincare-about-product__spec">
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">商品名</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">ベビークリ<span>ー</span>ム</dd>
+                            </div>
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">容量</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">47g</dd>
+                            </div>
+                            <div class="baby-skincare-about-product__spec-item">
+                              <dt class="baby-skincare-about-product__spec-item-title">価格</dt>
+                              <dd class="baby-skincare-about-product__spec-item-value">¥4,180（税込）</dd>
+                            </div>
+                          </dl>
+                          <div class="baby-skincare-about-product__badge">
+                            <img src="/assets/images/about-award_badge.webp" alt="キッズデザイン賞ロゴ" class="baby-skincare-about-product__badge-img" width="80" height="104" loading="lazy">
+                          </div>
+                        </div>
+
+                        <div class="baby-skincare-about-product__detail">
+                          <p class="baby-skincare-about-product__detail-title">多層ヴェールで、うるおいをしっかりキープ。乾燥しがちな季節や、気になるところの集中ケアにも。<sup class="baby-skincare-about-product__detail-small">※1</sup></p>
+                          <ul class="baby-skincare-about-product__points">
+                            <li class="baby-skincare-about-product__point">やわらかなオイルヴェールをつくるスクワラン、肌の上でとろける天然メルティングワックス※を配合しています。多層の保湿ヴェールの効果で、うるおいが持続します。<sup class="baby-skincare-about-product__detail-small">※2</sup> </li>
+                            <li class="baby-skincare-about-product__point">クリームでありながら、さらさらで肌あたりがやわらか。よく伸びるので塗るのも簡単です。</li>
+                            <li class="baby-skincare-about-product__point">ママ自身にもスキンケアを楽しんでいただけるよう、容器サイズにもこだわりました。手にフィットしやすい容器のサイズ・形にしました。</li>
+                          </ul>
+                          <p class="baby-skincare-about-product__detail-note">※1 弱酸性 　※2ミツロウ（保湿成分）<br>
+                            ※石油系界面活性剤、紫外線吸収剤、動物由来成分、パラベン、合成香料、合成色素、アルコール、鉱物油フリー</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+
+              </div>
+
+            </div>
+          </section>
+          <!-- end of baby-skincare-about -->
+
+          <!-- baby-skincare-how-to-use -->
+          <section class="baby-skincare-how-to-use">
+            <div class="baby-skincare-how-to-use__inner inner">
+              <hgroup class="baby-skincare-how-to-use__title baby-skincare-title baby-skincare-title--how-to-use">
+                <p class="baby-skincare-title__en baby-skincare-title__en-sm">HOW TO USE</p>
+                <h2 class="baby-skincare-title__jp baby-skincare-title__jp-sm">ベビースキンケアの使い方</h2>
+              </hgroup>
+              <div class="baby-skincare-how-to-use__steps">
+
+                <div class="baby-skincare-how-to-use__step">
+                  <div class="baby-skincare-how-to-use__step-content">
+                    <p class="baby-skincare-how-to-use__step-label">STEP1</p>
+                    <p class="baby-skincare-how-to-use__step-title">洗う</p>
+                    <div class="baby-skincare-how-to-use__step-img-wrap">
+                      <img src="/assets/images/howto_step01.webp" alt="赤ちゃんをやさしく洗っているイラスト" class="baby-skincare-how-to-use__step-img" width="200" height="200" loading="lazy">
+                    </div>
+                    <p class="baby-skincare-how-to-use__step-desc">
+                      ミキハウス ベビーソープの泡を適量出し、お肌をやさしくなで洗いしてから、ぬるま湯でしっかり流します。
+                    </p>
+                  </div>
+                </div>
+              
+                <div class="baby-skincare-how-to-use__step">
+                  <div class="baby-skincare-how-to-use__step-content">
+                    <p class="baby-skincare-how-to-use__step-label">STEP2</p>
+                    <p class="baby-skincare-how-to-use__step-title">肌を整える</p>
+                    <div class="baby-skincare-how-to-use__step-img-wrap">
+                      <img src="/assets/images/howto_step02.webp" alt="赤ちゃんの体にオイルを塗っている様子" class="baby-skincare-how-to-use__step-img" width="200" height="200" loading="lazy">
+                    </div>
+                    <p class="baby-skincare-how-to-use__step-desc">
+                      入浴後、ミキハウス ベビーオイルを適量手に取り、全身にやさしくなじませて肌を整えます。
+                    </p>
+                  </div>
+                </div>
+              
+                <div class="baby-skincare-how-to-use__step">
+                  <div class="baby-skincare-how-to-use__step-content">
+                    <p class="baby-skincare-how-to-use__step-label">STEP3</p>
+                    <p class="baby-skincare-how-to-use__step-title">潤い補給</p>
+                    <div class="baby-skincare-how-to-use__step-img-wrap">
+                      <img src="/assets/images/howto_step03.webp" alt="赤ちゃんの肌にローションを塗る様子" class="baby-skincare-how-to-use__step-img" width="200" height="200" loading="lazy">
+                    </div>
+                    <p class="baby-skincare-how-to-use__step-desc">
+                      ミキハウス ベビーミルクローションを適量手に取り、全身に塗り伸ばしてすばやくうるおいをチャージします。
+                    </p>
+                  </div>
+                </div>
+              
+                <div class="baby-skincare-how-to-use__step">
+                  <div class="baby-skincare-how-to-use__step-content">
+                    <p class="baby-skincare-how-to-use__step-label">STEP4</p>
+                    <p class="baby-skincare-how-to-use__step-title">保護する</p>
+                    <div class="baby-skincare-how-to-use__step-img-wrap">
+                      <img src="/assets/images/howto_step04.webp" alt="赤ちゃんがうるおいに包まれているイラスト" class="baby-skincare-how-to-use__step-img" width="200" height="200" loading="lazy">
+                    </div>
+                    <p class="baby-skincare-how-to-use__step-desc">
+                      ミキハウス ベビークリームを適量手に取り、乾燥が気になる部分を中心に薄く重ね塗りし、うるおいを閉じ込めて肌を守ります。
+                    </p>
+                  </div>
+                </div>
+              
+              </div>
+              
+              <div class="baby-skincare-how-to-use__youtube-section">
+                <h3 class="baby-skincare-how-to-use__youtube-title">各商品の使い方動画はこちら</h3>
+                <!-- サムネイル表示セクション -->
+              <div class="youtube-list">
+
+                  <button class="youtube-thumbnail js-open-youtube"
+                          type="button"
+                          data-video="https://youtu.be/DMLt81dfDwc?si=-Vz4xUbfF4oKHKXZ"
+                          aria-controls="youtubeModal">
+                    <img src="/assets/images/howto-youtube-thumbnail.webp" class="youtube-thumbnail-img" alt="動画サムネイル1" width="370" height="270" loading="lazy" />
+                  </button>
+
+                  <button class="youtube-thumbnail js-open-youtube"
+                          type="button"
+                          data-video="https://youtu.be/x-5gYllmJ44?si=G8_9GxD4aQXV2aNh"
+                          aria-controls="youtubeModal">
+                    <img src="/assets/images/howto-youtube-thumbnail02.webp" class="youtube-thumbnail-img" alt="動画サムネイル2" width="370" height="270" loading="lazy" />
+                  </button>
+
+                  <button class="youtube-thumbnail js-open-youtube"
+                          type="button"
+                          data-video="https://youtu.be/gcj7-LgBYlA?si=Ow-8wDq6iZINhEKT"
+                          aria-controls="youtubeModal">
+                    <img src="/assets/images/howto-youtube-thumbnail03.webp" class="youtube-thumbnail-img" alt="動画サムネイル3" width="370" height="270" loading="lazy" />
+                  </button>
+
+              </div>
+
+            <!-- YouTubeモーダル -->
+            <div id="youtubeModal" class="youtube-modal" aria-hidden="true" role="dialog" aria-modal="true">
+              <div class="youtube-modal__content">
+                <button class="youtube-modal__close" type="button" aria-label="閉じる">&times;</button>
+                <iframe id="youtubeFrame" src="" title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+
+              </div>
+            </div>
+          </section>
+          <!-- end of baby-skincare-how-to-use -->
+
+          <!-- baby-skincare-user-voice -->
+          <section class="baby-skincare-user-voice">
+            <canvas class="js-wave reverse"></canvas>
+            <div class="baby-skincare-user-voice__inner">
+              <h2 class="baby-skincare-user-voice__title"><span class="baby-skincare-user-voice__title-text">利用者の声</span></h2>
+              <div class="baby-skincare-user-voice__content js-animation">
+                <div class="baby-skincare-user-voice_carousel_wrap swiper">
+                  <div class="baby-skincare-user-voice_carousel swiper-wrapper">
+                    <div class="baby-skincare-user-voice_carousel-item swiper-slide">
+                      <div class="baby-skincare-user-voice_carousel-img-wrap">
+                        <img src="/assets/images/user-voice-icon01.webp" alt="女性ユーザーのアイコンイラスト" width="70" height="70" loading="lazy" class="baby-skincare-user-voice_carousel-img">
+                      </div>
+                      <p class="baby-skincare-user-voice__profile">30代 女性</p>
+                      <p class="baby-skincare-user-voice__comment">
+                        生後3か月の娘のやわらかな肌にもスッと伸びて、ベタつきにくいところが気に入っています。お風呂あがりの親子タイムがぐっと心地よくなりました。
+                      </p>
+                    </div>
+                    <div class="baby-skincare-user-voice_carousel-item swiper-slide">
+                      <div class="baby-skincare-user-voice_carousel-img-wrap">
+                        <img src="/assets/images/user-voice-icon02.webp" alt="男性ユーザーのアイコンイラスト" width="70" height="70" loading="lazy" class="baby-skincare-user-voice_carousel-img">
+                      </div>
+                      <p class="baby-skincare-user-voice__profile">30代 男性</p>
+                      <p class="baby-skincare-user-voice__comment">
+                        ポンプ式で片手でも扱いやすく、赤ちゃんの肌を抱っこしたままサッと保湿できるのが便利。家族みんなでシェアしやすいデザインもうれしいです。
+                      </p>
+                    </div>
+                    <div class="baby-skincare-user-voice_carousel-item swiper-slide">
+                      <div class="baby-skincare-user-voice_carousel-img-wrap">
+                        <img src="/assets/images/user-voice-icon03.webp" alt="女性ユーザーのアイコンイラスト" width="70" height="70" loading="lazy" class="baby-skincare-user-voice_carousel-img">
+                      </div>
+                      <p class="baby-skincare-user-voice__profile">20代 女性</p>
+                      <p class="baby-skincare-user-voice__comment">
+                        オイルが軽くのびるので、ベビーマッサージもスムーズ。赤ちゃんの肌に触れながら自分の手もしっとり守られる感じがして、ケアが楽しい時間になりました。
+                      </p>
+                    </div>
+                    <div class="baby-skincare-user-voice_carousel-item swiper-slide">
+                      <div class="baby-skincare-user-voice_carousel-img-wrap">
+                        <img src="/assets/images/user-voice-icon04.webp" alt="男性ユーザーのアイコンイラスト" width="70" height="70" loading="lazy" class="baby-skincare-user-voice_carousel-img">
+                      </div>
+                      <p class="baby-skincare-user-voice__profile">40代 男性</p>
+                      <p class="baby-skincare-user-voice__comment">
+                        敏感肌の息子でも使えるやさしい処方が決め手。ステップごとに質感が変わるので、赤ちゃんの肌を包み込むようなケアが続けやすいです。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="genesis_carousel_scrollbar">
+                  <div class="baby-skincare-user-voice_carousel_scrollbar swiper-scrollbar swiper-scrollbar-horizontal">
+                    <div class="swiper-scrollbar-drag"></div>
+                  </div>
+                </div>
+                <p class="baby-skincare-user-voice_note">※2025年3月に当社が実施したベビースキンケアシリーズ モニターアンケートより抜粋。コメントは個人の感想であり、使用感には個人差があります。</p>
+              </div>
+              <div class="baby-skincare-user-voice__review-section">
+                <div class="baby-skincare-user-voice__review-content">
+                  <p class="baby-skincare-user-voice__review-title">
+                    mybestのレビューでも成分、<br class="u-mobile">保湿力など好評価をいただきました！
+                  </p>
+                  <ul class="baby-skincare-user-voice__review-list">
+                    <li class="baby-skincare-user-voice__review-item">
+                      <a href="https://my-best.com/products/248306" class="baby-skincare-user-voice__review-link" target="_blank" rel="noopener noreferrer">
+                        <span class="baby-skincare-user-voice__review-link-text">ミキハウス ベビーオイルをレビュー！クチコミ・評判をもとに徹底検証</span>
+                      </a>
+                    </li>
+                    <li class="baby-skincare-user-voice__review-item">
+                      <a href="https://my-best.com/products/447565" class="baby-skincare-user-voice__review-link" target="_blank" rel="noopener noreferrer">
+                        <span class="baby-skincare-user-voice__review-link-text">ミキハウス ベビーミルクローションをレビュー！クチコミ・評判をもとに徹底検証</span>
+                      </a>
+                    </li>
+                    <li class="baby-skincare-user-voice__review-item">
+                      <a href="https://my-best.com/products/447568" class="baby-skincare-user-voice__review-link" target="_blank" rel="noopener noreferrer">
+                        <span class="baby-skincare-user-voice__review-link-text">ミキハウス ベビースキンケア ベビークリームをレビュー！クチコミ・評判をもとに徹底検証</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- end of baby-skincare-user-voice -->
+
+          <!-- baby-skincare-faq -->
+           
 
 
            <div class="space-top-100" style="height: 600px; display: block; background-color: #f0f0f0;"></div>
@@ -359,6 +858,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <script src="/assets/js/scripts-child.js"></script>
       <script defer src="/assets/js/script.js"></script>
         <!-- ====================================================================
             ページ組み込みコード 
