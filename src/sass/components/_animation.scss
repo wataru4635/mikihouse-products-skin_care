@@ -6,7 +6,7 @@
 /* フェード */
 .js-fade-in {
   opacity: 0;
-  transition: opacity var(--duration-long) ease;
+  transition: opacity 1s ease-in-out;
   
   &.is-active {
     opacity: 1;
@@ -17,7 +17,7 @@
 .js-fade-up {
   opacity: 0;
   translate: 0 20px;
-  transition: opacity var(--duration-long) ease, translate var(--duration-long) ease;
+  transition: opacity var(--duration-long) ease-out, translate var(--duration-long) ease-out;
   
   &.is-active {
     opacity: 1;
@@ -37,6 +37,18 @@
   }
 }
 
+/* 左方向にスライド */
+.js-slide-right {
+  opacity: 0;
+  translate: 20px 0;
+  transition: opacity var(--duration-long) ease-out, translate var(--duration-long) ease-out;
+  
+  &.is-active {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 /* 下方向にスライド */
 .js-fade-down {
   opacity: 0;
@@ -48,70 +60,15 @@
     translate: 0 0;
   }
 }
-
-/* 右方向にスライド */
-.js-slide-right {
+.js-blur-animation {
+  filter: blur(10px);
   opacity: 0;
-  translate: 10px 0;
-  transition: opacity var(--duration-long) ease, translate var(--duration-long) ease;
-  @include mq('md') {
-    translate: 20px 0;
-  }
+  transition: filter 1s cubic-bezier(.47,-0.09,.84,.61), opacity 1s cubic-bezier(.47,-0.09,.84,.61), scale 1s cubic-bezier(.47,-0.09,.84,.61);
+  scale: .95;
   &.is-active {
+    filter: blur(0);
     opacity: 1;
-    translate: 0 0;
-  }
-}
-
-//色塗りの状態から出現
-.js-color-curtain {
-  position: relative;
-  width: fit-content;
-  clip-path: inset(50%);
-  
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, #89B564 0%, #1A90BD 100%);
-    transform: scaleX(0);
-    transform-origin: 0 50%;
-    pointer-events: none;
-  }
-
-  &.is-active {
-    animation: 1.2s forwards ease-in-out textView;
-    &::after {
-      animation: 1.2s forwards ease-in-out colorBox;
-    }
-  }
-}
-
-@keyframes textView {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes colorBox {
-  0%, 50% {
-    transform-origin: 0 50%;
-  }
-  60%, 100% {
-    transform-origin: 100% 50%;		
-  }
-  60% {
-    transform: scaleX(1);
-  }
-  100% {
-    transform: scaleX(0);
+    scale: 1;
   }
 }
 
@@ -151,6 +108,28 @@
     }
   }
 }
+
+.js-mask__animation {
+  display: block;
+  mask-image: url("/assets/images/mask-img.webp");
+  -webkit-mask-image: url("/assets/images/mask-img.webp");
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center center;
+  -webkit-mask-position: center center;
+  opacity: 0;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  transition: mask-size 2.5s cubic-bezier(0.25, 0.06, 0.5, 1), opacity 2.5s cubic-bezier(0.25, 0.06, 0.5, 1), -webkit-mask-size 2.5s cubic-bezier(0.25, 0.06, 0.5, 1), -webkit-mask-position 2.5s cubic-bezier(0.25, 0.06, 0.5, 1), mask-position 2.5s cubic-bezier(0.25, 0.06, 0.5, 1);
+  &.is-active {
+    opacity: 1;
+    mask-size: 2000% 2000%;
+    -webkit-mask-size: 2000% 2000%;
+  }
+}
+
 
 ////////////////////
 // 遅延時間の指定

@@ -19,10 +19,14 @@
   }
 
   // 使い方例
-  observeElements(".js-fade-in");
-  observeElements(".js-clip-img");
-  observeElements(".js-scaleImg");
+  observeElements(".js-fade-up");
+  observeElements(".js-title-animation");
+  observeElements(".js-slide-left");
+  observeElements(".js-slide-right");
+  observeElements(".js-step-animation");
   observeElements(".js-animation");
+  observeElements(".js-mask__animation");
+  observeElements(".js-blur-animation");
 
   // =======================
   // 文字を1文字ずつ <span> に分割
@@ -440,3 +444,157 @@
       }
     }
   });
+
+  /* ===============================================
+# よくある質問のアコーディオン機能
+=============================================== */
+const setupFaqAccordion = () => {
+  const faqQuestions = document.querySelectorAll('.js-faq-question');
+
+  if (!faqQuestions.length) return;
+
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      // 親要素のfaq__itemを取得
+      const faqItem = question.closest('.baby-skincare-faq__item');
+      // is-openクラスをトグル
+      const isOpen = faqItem.classList.toggle('is-open');
+
+      // 回答部分を取得
+      const answer = faqItem.querySelector('.baby-skincare-faq__item-answer');
+
+      if (isOpen) {
+        // 開く場合は高さを設定
+        const scrollHeight = answer.scrollHeight;
+        answer.style.maxHeight = scrollHeight + 'px';
+      } else {
+        // 閉じる場合は高さを0に
+        answer.style.maxHeight = '0';
+      }
+    });
+  });
+};
+
+// ===============================
+// スクロール復元を無効化（全ブラウザで安定）
+// ===============================
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+// （任意）初回表示時のハッシュジャンプを抑止
+// 途中リロード対策として常にトップ開始にする運用なら有効
+if (location.hash) {
+  history.replaceState(null, '', location.pathname + location.search);
+}
+
+// ===============================
+// ここから任意の他初期化（例: FAQ）
+// ===============================
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    // あれば。無ければこの行は削除OK
+    setupFaqAccordion();
+  } catch (_) {}
+});
+
+gsap.registerPlugin(ScrollTrigger);
+
+// ===============================
+// GSAP: 水滴アニメーション本体
+// ===============================
+function initDrops() {
+  const baseTrigger = {
+    trigger: document.documentElement,
+    start: "top top",
+    end: "max",
+    scrub: true,
+    invalidateOnRefresh: true
+  };
+
+  // ※ fromTo は進捗同期の観点では to の方が安定だが、
+  //   ご要望通り現状の値でfromTo継続する場合は immediateRender:false を必ず付ける
+  gsap.fromTo(".water-drop--01", { top: "-0.5%" }, { top: "90%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--02", { top: "0.6%" },  { top: "90%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--03", { top: "1.5%" },  { top: "90%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--04", { top: "3.5%" },  { top: "87%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--05", { top: "4.7%" },  { top: "70%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--06", { top: "5.5%" },  { top: "81%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--07", { top: "6.5%" },  { top: "82%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--08", { top: "8%" },    { top: "83%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--09", { top: "10%" },   { top: "84%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--10", { top: "11%" },   { top: "85%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--11", { top: "13%" },   { top: "86%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--12", { top: "14%" },   { top: "87%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--13", { top: "15%" },   { top: "88%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--14", { top: "16%" },   { top: "89%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--15", { top: "17%" },   { top: "90%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--16", { top: "18%" },   { top: "91%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--17", { top: "19%" },   { top: "92%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--18", { top: "20%" },   { top: "94%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--19", { top: "21%" },   { top: "95.5%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--20", { top: "22%" },   { top: "97%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--21", { top: "23%" },   { top: "98.1%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--22", { top: "24%" },   { top: "100%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--23", { top: "25%" },   { top: "100%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--24", { top: "26%" },   { top: "102.7%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+  gsap.fromTo(".water-drop--25", { top: "27%" },   { top: "102%", ease: "none", immediateRender: false, scrollTrigger: baseTrigger });
+
+  // レイアウトが落ち着いてから最終リフレッシュ（フォント/画像で高さが変わる対策）
+  setTimeout(() => ScrollTrigger.refresh(), 0);
+}
+
+// ===============================
+// 表示時は必ずトップへ → 安定してから初期化
+// ===============================
+function resetToTopAndInit() {
+  // CSSの smooth-scroll の影響を避けて即座に0,0へ
+  const html = document.documentElement;
+  const prev = html.style.scrollBehavior;
+  html.style.scrollBehavior = 'auto';
+  window.scrollTo(0, 0);
+
+  // 2〜3フレーム待ってから初期化（スクロールが安定するのを待つ）
+  let frames = 3;
+  function tick() {
+    if (frames-- <= 0) {
+      html.style.scrollBehavior = prev || '';
+      initDrops();
+      ScrollTrigger.refresh();
+    } else {
+      requestAnimationFrame(tick);
+    }
+  }
+  requestAnimationFrame(tick);
+}
+
+// 通常ロード時
+window.addEventListener('load', () => {
+  // フォント読み込みを待てる環境なら待ってから実行
+  const ready = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+  ready.then(() => resetToTopAndInit());
+}, { once: true });
+
+// bfcache（戻る/リロード復帰）でも必ずトップへ
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) {
+    const ready = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    ready.then(() => resetToTopAndInit());
+  }
+});
+
+/* ===============================================
+# 水滴アニメーション
+=============================================== */
+
+document.querySelectorAll('.water-drop').forEach(el => {
+  const img = el.querySelector('img');
+
+  // 縦揺れ: 3.8〜5.8s
+  const durY = (3.8 + Math.random() * 2).toFixed(2);
+  img.style.setProperty('--dur-y', `${durY}s`);
+
+  // 位相ずらし（同調防止）
+  const phaseShift = (Math.random() * 3).toFixed(2);
+  img.style.animationDelay = `-${phaseShift}s`;
+});
