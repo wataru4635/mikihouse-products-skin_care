@@ -37,7 +37,7 @@ $padding-sp: 20px;
   --fs-body-sm: clamp(11px, calc(11px + (2 * ((100vw - 320px) / 55))), 13px);
   --fs-body-md: clamp(12px, calc(12px + (2 * ((100vw - 320px) / 55))), 14px);
   --fs-body-lg: clamp(14px, calc(14px + (2 * ((100vw - 320px) / 55))), 16px);
-  --fs-body-xl: clamp(15px, calc(15px + (2 * ((100vw - 320px) / 55))), 17px);
+  --fs-body-xl: clamp(14px, calc(14px + (3 * ((100vw - 320px) / 55))), 17px);
   --fs-body-xxl: clamp(18px, calc(18px + (2 * ((100vw - 320px) / 55))), 20px);
   
   /* 見出し */
@@ -117,14 +117,9 @@ $padding-sp: 20px;
 ////////////////////
 // レスポンシブ
 ///////////////////
- :root {
-  /* スマホ〜中型（320px〜768px） */
+:root {
   --fluid-basis-mobile: (100vw - 320px) / (375 - 320);
-
-  /* 中型〜大型（768px〜1440px） */
   --fluid-basis: (100vw - 768px) / (1440 - 768);
-
-  /* 大型ディスプレイ（1440px〜1800px） */
   --fluid-basis-2: (100vw - 1440px) / (1800 - 1440);
 }
 

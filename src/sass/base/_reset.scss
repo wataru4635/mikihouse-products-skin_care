@@ -1,16 +1,13 @@
-/* グローバルリセット */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* ボディの基本設定 */
 body {
   margin: 0;
 }
 
-/* デフォルトの余白とパディングを削除 */
 ul,
 ol,
 button,
@@ -30,13 +27,11 @@ small {
   padding: 0;
 }
 
-/* リストスタイルのリセット */
 ul,
 ol {
   list-style: none;
 }
 
-/* aタグのスタイルとトランジション */
 a {
   text-decoration: none;
   color: inherit;
@@ -46,20 +41,18 @@ button {
   color: inherit;
 }
 
-/* ホバー時のカーソル設定 */
 @media (any-hover: hover) {
   a:hover {
     cursor: pointer;
   }
 }
 
-/* タップ時のハイライトを透明に設定 */
 a {
-  -webkit-tap-highlight-color: transparent; /* リンクのハイライトを透明に */
+  -webkit-tap-highlight-color: transparent;
 }
 
 button {
-  -webkit-tap-highlight-color: transparent; /* ボタンのハイライトも透明に */
+  -webkit-tap-highlight-color: transparent;
 }
 
 #baby-skincare ul li{

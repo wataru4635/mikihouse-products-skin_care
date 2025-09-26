@@ -34,9 +34,14 @@
     position: absolute;
     translate: -50% 0;
     z-index: 2;
-    will-change: transform, top; /* パフォーマンス */
+    will-change: transform, top;
+    pointer-events: none;
 
     @media (max-width: 767px) {
+      scale: 0.7;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
       scale: 0.7;
     }
 
@@ -44,166 +49,116 @@
       width: 100%;
       height: auto;
       object-fit: contain;
-      animation: floating-y var(--dur-y, 4.8s) cubic-bezier(.37,.01,.63,1) infinite alternate-reverse;
+      animation: floating-y var(--dur-y, 4.8s) cubic-bezier(.37, .01, .63, 1) infinite alternate-reverse;
+      opacity: 0.5;
     }
   }
 
-  
+
   @keyframes floating-y {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(15px); }
-    100% { transform: translateY(0); }
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(15px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
   }
 
   .water-drop--01 {
     top: -0.5%;
     left: 100%;
-    width: 158px;
+    width: 126px;
   }
 
   .water-drop--02 {
     top: 0.6%;
     left: 83%;
-    width: 82px;
+    width: 65px;
   }
 
   .water-drop--03 {
     top: 1.5%;
     left: 20%;
-    width: 76px;
+    width: 60px;
   }
 
   .water-drop--04 {
     top: 3.5%;
     left: 10%;
-    width: 114px;
+    width: 91px;
   }
 
   .water-drop--05 {
-    top: 4.7%;
+    top: 4.5%;
     left: 95%;
-    width: 263.03px;
-  }
-
-  .water-drop--06 {
-    top: 5.5%;
-    left: 95%;
-    width: 114px;
-  }
-
-  .water-drop--07 {
-    top: 6.5%;
-    left: 5%;
-    width: 156.86px;
+    width: 210px;
   }
 
   .water-drop--08 {
     top: 8%;
     left: 90%;
-    width: 115.62px;
+    width: 92px;
   }
 
   .water-drop--09 {
     top: 10%;
     left: 6%;
-    width: 114px;
-  }
-
-  .water-drop--10 {
-    top: 11%;
-    left: 96%;
-    width: 109.97px;
-  }
-
-  .water-drop--11 {
-    top: 13%;
-    left: 5%;
-    width: 173.01px;
+    width: 91px;
   }
 
   .water-drop--12 {
     top: 14%;
     left: 90%;
-    width: 114px;
+    width: 91px;
   }
 
   .water-drop--13 {
     top: 15%;
     left: 9%;
-    width: 109.97px;
-  }
-
-  .water-drop--14 {
-    top: 16%;
-    left: 95%;
-    width: 173.01px;
-  }
-
-  .water-drop--15 {
-    top: 17%;
-    left: 4.8%;
-    width: 114px;
+    width: 87px;
   }
 
   .water-drop--16 {
     top: 18%;
     left: 92%;
-    width: 114px;
+    width: 91px;
   }
 
   .water-drop--17 {
     top: 19%;
     left: 4.6%;
-    width: 109.97px;
+    width: 87px;
   }
 
   .water-drop--18 {
     top: 20%;
     left: 95%;
-    width: 173.01px;
-  }
-
-  .water-drop--19 {
-    top: 21%;
-    left: 5.5%;
-    width: 114px;
-  }
-
-  .water-drop--20 {
-    top: 22%;
-    left: 90%;
-    width: 114px;
+    width: 138px;
   }
 
   .water-drop--21 {
     top: 23%;
     left: 7%;
-    width: 109.97px;
-  }
-
-  .water-drop--22 {
-    top: 24%;
-    left: 5%;
-    width: 114px;
+    width: 87px;
   }
 
   .water-drop--23 {
     top: 25%;
     left: 95%;
-    width: 173.01px;
+    width: 138px;
   }
 
   .water-drop--24 {
     top: 26%;
     left: 5%;
-    width: 114px;
+    width: 91px;
   }
 
-  .water-drop--25 {
-    top: 27%;
-    left: 95%;
-    width: 109.97px;
-  }
 
   /* ===============================================
   # baby-skincare-decoration-img
@@ -310,7 +265,7 @@
     line-height: 1.3;
 
     @include mq('md') {
-      width: clamp(310px, calc(310px + 100 * var(--fluid-basis)), 410px);
+      width: clamp(350px, calc(350px + 60 * var(--fluid-basis)), 410px);
       height: clamp(40px, calc(40px + 10 * var(--fluid-basis)), 50px);
     }
   }
@@ -329,6 +284,13 @@
         background-color: color-mix(in srgb, var(--main-color) 50%, transparent);
         left: 33px;
       }
+    }
+  }
+
+  .baby-skincare-nav__link.baby-skincare-nav__link--feature {
+    padding-inline: 45px 15px;
+    @include mq('md') {
+      padding-inline: 45px 40px;
     }
   }
 
@@ -450,6 +412,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 30px;
+    margin-top: 15px;
 
     @include mq('md') {
       grid-template-columns: repeat(2, 1fr);
@@ -693,7 +656,7 @@
 
   .baby-skincare-feature {
     overflow-x: clip;
-    padding-block: 370px 50px;
+    padding-block: 370px 200px;
     position: relative;
 
     @include mq('md') {
@@ -833,12 +796,48 @@
     letter-spacing: 0.04em;
   }
 
+  .baby-skincare-feature__item-note {
+    border: 1px solid var(--main2-color);
+    background: rgba(255, 255, 255, 0.50);
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 11px;
+
+    @include mq('md') {
+      padding: 10px 20px;
+      margin-top: 15px;
+    }
+  }
+
+
+  .baby-skincare-feature__item-note-title {
+    color: var(--main-color);
+    font-feature-settings: 'halt'on;
+    font-size: var(--fs-body-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.33333;
+    letter-spacing: calc(0.48 / 12 * 1em);
+  }
+
+  .baby-skincare-feature__item-note-desc {
+    color: var(--main-color);
+    font-feature-settings: 'halt'on;
+    font-size: var(--fs-body-xs);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+    letter-spacing: calc(0.72 / 12 * 1em);
+  }
+
+
+
   /* ===============================================
   # baby-skincare-reason
   =============================================== */
 
   .baby-skincare-reason {
-    padding-block: 160px 140px;
+    padding-block: 120px 140px;
     background-color: rgba(255, 255, 255, 0.50);
 
     @include mq('md') {
@@ -850,7 +849,7 @@
     display: flex;
     flex-direction: column;
     gap: 56px;
-    margin-top: 56px;
+    margin-top: 42px;
 
     @include mq('md') {
       margin-top: 66px;
@@ -860,7 +859,7 @@
   .baby-skincare-reason__steps {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 46px;
+    gap: 32px;
 
     @include mq('md') {
       grid-template-columns: repeat(4, 1fr);
@@ -911,84 +910,6 @@
     }
   }
 
-  .baby-skincare-reason__expert-comment {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px 30px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.50);
-    box-shadow: var(--shadow-light-blue);
-
-    @include mq('md') {
-      grid-template-columns: 110px auto;
-      gap: 30px;
-      padding: 20px clamp(20px, calc(20px + 30 * var(--fluid-basis)), 50px);
-      border-radius: 20px;
-      align-items: center;
-    }
-  }
-
-  .baby-skincare-reason__comment-icon {
-    @media (max-width: 767px) {
-      display: grid;
-      grid-template-columns: 110fr 149fr;
-      align-items: flex-end;
-      gap: 16px;
-    }
-  }
-
-  .baby-skincare-reason__comment-icon-img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 10px;
-  }
-
-  .baby-skincare-reason__comment-content {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-
-    @include mq('md') {
-      gap: clamp(1px, calc(1px + 5 * var(--fluid-basis)), 6px);
-    }
-  }
-
-  .baby-skincare-reason__comment-label {
-    color: var(--main-color);
-    font-size: var(--fs-body-lg);
-    font-weight: var(--font-weight-normal);
-  }
-
-  .baby-skincare-reason__comment-label--sp {
-    @include mq('md') {
-      display: none;
-    }
-  }
-
-  .baby-skincare-reason__comment-label--pc {
-    @media (max-width: 767px) {
-      display: none;
-    }
-  }
-
-  .baby-skincare-reason__comment-text {
-    font-feature-settings: 'halt'on;
-    font-size: var(--fs-body-sm);
-    font-weight: var(--font-weight-normal);
-    line-height: 1.92308;
-    letter-spacing: 0.04em;
-  }
-
-  .baby-skincare-reason__comment-name {
-    font-feature-settings: 'halt'on;
-    font-size: var(--fs-body-sm);
-    font-weight: var(--font-weight-normal);
-    line-height: 2.23077;
-    letter-spacing: 0.04em;
-  }
-
   .baby-skincare-reason__link-wrap {
     display: flex;
     justify-content: center;
@@ -1012,13 +933,16 @@
     position: relative;
     border: 1px solid var(--main-color);
     transition: background-color var(--duration-base) ease, color var(--duration-base) ease;
-    padding: 16px 0 16px 30px;
+    padding: 16px 30px 16px 25px;
+@media (max-width: 767px) {
+position: relative;
 
+}
     @include mq('md') {
       font-size: clamp(20px, calc(20px + 6 * var(--fluid-basis)), 23px);
       line-height: 1;
       border-radius: 20px;
-      max-width: 800px;
+      max-width: 588px;
       padding: 25px 30px 25px 45px;
     }
 
@@ -1037,8 +961,8 @@
     &::after {
       content: '';
       display: inline-block;
-      width: 19.1px;
-      height: 13.814px;
+      width: 18.1px;
+      height: 12.814px;
       aspect-ratio: 19.10/13.81;
       background-color: var(--white);
       -webkit-mask-image: url('/assets/images/arrow-right.svg');
@@ -1048,6 +972,14 @@
       -webkit-mask-size: contain;
       mask-size: contain;
       transition: background-color var(--duration-base) ease, translate var(--duration-base) ease;
+      @media (max-width: 767px) {
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      right: 10px;
+      width: 19.1px;
+      height: 13.814px;
+      }
     }
   }
 
@@ -1055,7 +987,7 @@
   # baby-skincare-about
   =============================================== */
   .baby-skincare-about {
-    padding-block: 30px 80px;
+    padding-block: 30px 60px;
     position: relative;
 
     @media (max-width: 767px) {
@@ -1162,16 +1094,22 @@
 
   .baby-skincare-about__feature-label {
     color: var(--main-color);
-    font-size: var(--fs-body-lg);
+    font-size: clamp(15px, calc(15px + 2 * var(--fluid-basis-mobile)), 17px);
     font-weight: var(--font-weight-normal);
     letter-spacing: 0.04em;
     position: relative;
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 4px;
 
     @media (max-width: 767px) {
       justify-content: center;
+      padding-right: 12px;
+    }
+
+    @include mq('md') {
+      font-size: clamp(14px, calc(14px + 2 * var(--fluid-basis)), 16px);
+      gap: 7px;
     }
 
     &::before {
@@ -1187,10 +1125,14 @@
   .baby-skincare-about__feature-desc {
     color: var(--main-color);
     font-feature-settings: 'halt'on;
-    font-size: var(--fs-body-xs);
+    font-size: clamp(11px, calc(11px + 2 * var(--fluid-basis-mobile)), 13px);
     font-weight: var(--font-weight-normal);
     line-height: 2;
     letter-spacing: 0.04em;
+
+    @include mq('md') {
+      font-size: clamp(10px, calc(10px + 2 * var(--fluid-basis)), 12px);
+    }
   }
 
   .baby-skincare-about__products {
@@ -1214,14 +1156,15 @@
 
   .baby-skincare-about-product__heading {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-radius: 5px;
     background: var(--main2-color);
-    padding: 10px;
+    padding: 10px 9px;
+    gap: clamp(4px, calc(4px + 3 * var(--fluid-basis-mobile)), 7px);
 
     @include mq('md') {
       padding: 4px 15px;
+      gap: 10px;
     }
   }
 
@@ -1245,8 +1188,9 @@
     color: var(--main-color);
     font-size: clamp(8px, calc(8px + 2 * var(--fluid-basis-mobile)), 10px);
     font-weight: var(--font-weight-normal);
-    line-height: 1.3;
+    line-height: 1.5;
     letter-spacing: 0.04em;
+    white-space: nowrap;
 
     @include mq('md') {
       padding: 1px 20px;
@@ -1322,6 +1266,11 @@
       grid-template-columns: 1fr clamp(60px, calc(60px + 20 * var(--fluid-basis)), 80px);
       gap: 30px;
       justify-content: space-between;
+    }
+  }
+  .baby-skincare-about-product__info.baby-skincare-about-product__info--milk {
+    @media (max-width: 767px) {
+    gap: 15px;
     }
   }
 
@@ -1455,7 +1404,7 @@
   =============================================== */
 
   .baby-skincare-how-to-use {
-    padding-block: 100px 150px;
+    padding-block: 120px 150px;
     background: rgba(255, 255, 255, 0.50);
     position: relative;
 
@@ -1503,6 +1452,7 @@
         transition-delay: 0.3s;
       }
     }
+
     &.is-active {
       &::before {
         clip-path: inset(0 0 0 0);
@@ -1592,7 +1542,7 @@
     text-align: center;
     font-size: var(--fs-body-xxl);
     font-weight: var(--font-weight-normal);
-    letter-spacing: 0.04emm;
+    letter-spacing: 0.04em;
   }
 
 
@@ -1612,16 +1562,31 @@
     }
   }
 
+  .youtube-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .youtube-item-title {
+    color: var(--main-color);
+text-align: center;
+font-size: var(--fs-body-md);
+font-weight: var(--font-weight-normal);
+letter-spacing: calc(0.56 / 14 * 1em);
+  }
+
   .youtube-thumbnail {
     cursor: pointer;
     width: 100%;
     transition: filter var(--duration-base) ease;
     position: relative;
     border: none;
+    border-radius: 6px;
 
     @media (hover: hover) {
       &:hover {
-        filter: brightness(1.1);
+        filter: brightness(1.05);
 
         &::before {
           background: url('/assets/images/icn_youtube_play_on.svg') no-repeat center center / contain;
@@ -1631,7 +1596,7 @@
 
     @media (hover: none) {
       &:hover {
-        filter: brightness(1.1);
+        filter: brightness(1.05);
 
         &::before {
           background: url('/assets/images/icn_youtube_play_on.svg') no-repeat center center / contain;
@@ -1648,7 +1613,7 @@
     translate: -50% -50%;
     width: myClamp(50, 95, 1024, 1640);
     background: url('/assets/images/icn_youtube_play.svg') no-repeat center center / cover;
-    transition: background-image var(--duration-base) ease;
+    transition: background var(--duration-base) ease;
     aspect-ratio: 1;
 
     @media (max-width: 1023px) {
@@ -1957,6 +1922,7 @@
     font-size: var(--fs-body-lg);
     font-weight: var(--font-weight-bold);
     text-align: center;
+
   }
 
   .baby-skincare-user-voice__review-list {
@@ -2438,6 +2404,15 @@
     }
   }
 
+  .baby-skincare-story__item--01 {
+    .baby-skincare-story__item-title {
+      font-size: 15px;
+      @include mq('md') {
+        font-size: clamp(19px, calc(19px + 3 * var(--fluid-basis)), 22px);
+      }
+    }
+  }
+
   .baby-skincare-story__item-desc {
     color: var(--main-color);
     font-feature-settings: 'halt'on;
@@ -2453,9 +2428,9 @@
   }
 
   /* ===============================================
-  # baby-skincare-mikihouse-tory
+  # baby-skincare-mikihouse-story
   =============================================== */
-  .baby-skincare-mikihouse-tory {
+  .baby-skincare-mikihouse-story {
     padding-block: 160px 80px;
     background: rgba(255, 255, 255, 0.50);
 
@@ -2464,7 +2439,7 @@
     }
   }
 
-  .baby-skincare-mikihouse-tory__title {
+  .baby-skincare-mikihouse-story__title {
     color: var(--main-color);
     text-align: center;
     font-size: 23px;
@@ -2485,7 +2460,7 @@
     }
   }
 
-  .baby-skincare-mikihouse-tory__content {
+  .baby-skincare-mikihouse-story__content {
     margin-top: 70px;
     display: grid;
     grid-template-columns: 1fr;
@@ -2497,13 +2472,13 @@
     }
   }
 
-  .baby-skincare-mikihouse-tory__block {
+  .baby-skincare-mikihouse-story__block {
     background-color: var(--white);
     display: flex;
     flex-direction: column;
   }
 
-  .baby-skincare-mikihouse-tory__img {
+  .baby-skincare-mikihouse-story__img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -2514,14 +2489,14 @@
     }
   }
 
-  .baby-skincare-mikihouse-tory__text {
+  .baby-skincare-mikihouse-story__text {
     padding: 30px;
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
-  .baby-skincare-mikihouse-tory__text-title {
+  .baby-skincare-mikihouse-story__text-title {
     color: var(--main-color);
     font-feature-settings: 'halt'on;
     font-size: var(--fs-body-md);
@@ -2530,7 +2505,7 @@
     letter-spacing: 0.04em;
   }
 
-  .baby-skincare-mikihouse-tory__text-desc {
+  .baby-skincare-mikihouse-story__text-desc {
     color: var(--main-color);
     font-feature-settings: 'halt'on;
     font-size: var(--fs-body-md);
@@ -2540,7 +2515,7 @@
     margin-bottom: 20px;
   }
 
-  .baby-skincare-mikihouse-tory__btn {
+  .baby-skincare-mikihouse-story__btn {
     margin-top: auto;
     display: flex;
     background-color: var(--main-color);
@@ -2567,17 +2542,17 @@
         color: var(--main-color);
       }
 
-      &:hover .baby-skincare-mikihouse-tory__btn-arrow {
+      &:hover .baby-skincare-mikihouse-story__btn-arrow {
         background-color: var(--main-color);
       }
 
-      &:hover .baby-skincare-mikihouse-tory__btn-arrow::before {
+      &:hover .baby-skincare-mikihouse-story__btn-arrow::before {
         background-color: var(--white);
       }
     }
   }
 
-  .baby-skincare-mikihouse-tory__btn-arrow {
+  .baby-skincare-mikihouse-story__btn-arrow {
     display: flex;
     flex-grow: 1;
     width: 15px;

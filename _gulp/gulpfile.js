@@ -37,7 +37,7 @@ const destPath = {
   html: "../dist/",
 };
 
-const browsers = ["last 2 versions", "> 5%", "ie = 11", "not ie <= 10", "ios >= 8", "and_chr >= 5", "Android >= 5"];
+// browserslistはpackage.jsonで管理
 
 // HTMLファイルのコピー
 const htmlCopy = () => {
@@ -65,22 +65,27 @@ const cssSass = () => {
           outputStyle: "expanded", // コンパイル後のCSSの書式（expanded or compressed）
         })
       )
-      // ベンダープレフィックスを自動付与
+      // ベンダープレフィックスを自動付与、CSSプロパティをアルファベット順にソート、未来のCSS構文を使用可能に
       .pipe(
         postcss([
-          postcssPresetEnv(),
           autoprefixer({
-            grid: true,
+            grid: false
           }),
+          cssdeclsort({
+            order: "alphabetical"
+          }),
+          postcssPresetEnv({
+            preserve: true,
+            features: {
+              'custom-properties': false,
+              'nesting-rules': true,
+              'grid-template-areas': false,
+              'grid-area': false
+            },
+            autoprefixer: false,
+            enableClientSidePolyfills: false
+          })
         ])
-      )
-      // CSSプロパティをアルファベット順にソートし、未来のCSS構文を使用可能に
-      .pipe(
-        postcss([cssdeclsort({
-          order: "alphabetical"
-        })]
-        ),
-        postcssPresetEnv({ browsers: 'last 2 versions' })
       )
       // メディアクエリを統合
       .pipe(mmq())
